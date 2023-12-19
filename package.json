@@ -1,12 +1,14 @@
 {
   "name": "featheredelectioneditor",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple editor for feathered elections plugin",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "TheoSempaii",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
 }
