@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync } from "fs"
 import { parse, resolve } from "path"
 import * as yaml from "yaml"
+import { Mayor } from "../classes/mayor.js"
 
 function readMayorFiles() {
     const files = readdirSync(resolve("./input"))
@@ -23,12 +24,17 @@ function readMayorFiles() {
  * 
  * @param {string} data 
  * @param {string} filename 
- * @returns 
  */
 function validateMayorFile(data, filename) {
-    const returnData = yaml.parse(data, { encoding: "utf8" })
-    returnData.filename = filename
-    return returnData
+    try {
+        const returnData = yaml.parse(data, { encoding: "utf8" })
+        returnData.filename = filename
+        const mayorValue = new Mayor(returnData)
+        return mayorValue
+    } catch (err) {
+        if (err) return null
+    }
+
 }
 
 export { readMayorFiles }
