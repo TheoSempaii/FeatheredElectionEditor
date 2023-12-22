@@ -25,6 +25,5 @@ export class Effect {
 
 
         }
-        console.log(this["args"])
     }
 }

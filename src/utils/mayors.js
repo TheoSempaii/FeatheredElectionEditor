@@ -34,6 +34,7 @@ function validateMayorFile(data, filename) {
     } catch (err) {
         if (err) return null
     }
+    return null
 
 }
 

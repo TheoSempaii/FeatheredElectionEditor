@@ -16,8 +16,14 @@ async function createApp() {
     app.use(urlencoded({ extended: true }))
     app.use(raw())
 
+    app.use("/css", express.static(resolve("./src/public/css")));
+    app.use("/img", express.static(resolve("./src/public/img")));
+
+
+
     app.set('view engine', 'ejs')
-    app.set('views', resolve("./src/views"))
+    app.set('views', resolve("./src/public/views"))
+
 
     const routes = readdirSync(resolve("./src/routes"))
 
@@ -26,7 +32,6 @@ async function createApp() {
         app.use(imported.router)
     }))
 
-    console.log(readMayorFiles().map(v => console.log(v?.effects)))
 
 
     app.listen(80, () => {

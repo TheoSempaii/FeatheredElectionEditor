@@ -1,9 +1,11 @@
 import { Router } from "express";
+import { readMayorFiles } from "../utils/mayors.js"
 
 const router = Router();
 
 router.get("/", (req, res) => {
-    res.render("main")
+    const mayors = readMayorFiles()
+    res.render("main", { mayors: mayors })
 })
 
 export { router }

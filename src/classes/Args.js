@@ -19,19 +19,5 @@ export class Args {
             }
         }
 
-        /*
-        this["amplifier"] = 0
-        this["duration"] = 0
-        this["key"] = ""
-        this["simpleType"] = true
-        this["value"] = {}
-        */
-        /*
-        if (typeof (content) == "object") {
-            if (!isNaN(content["duration"])) this["duration"] = parseInt(content["duration"])
-            if (!isNaN(content["amplifier"])) this["amplifier"] = parseInt(content["amplifier"])
-        }
-        */
-
     }
 }
