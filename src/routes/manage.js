@@ -21,7 +21,7 @@ router.post("/manage/:id", async (req, res) => {
     req.body["effect-lore"] = req.body["effect-lore"].split("\n")
     const mayor = new Mayor(req.body)
     await saveMayor(mayor)
-    res.send({ message: "ok" })
+    res.send(mayor)
 })
 
 

@@ -4,3 +4,68 @@
     align-items: center;
     margin-bottom: 6vh;
 }
+
+.playerSkin .atropos-shadow {
+    background: rgba(255, 255, 255, 0.205);
+}
+
+input,
+span,
+select,
+option,
+textarea {
+    background-color: rgba(0, 0, 0, 0.486) !important;
+    background: transparent;
+    color: rgb(185, 43, 201) !important;
+    font-weight: bolder !important;
+    text-align: center;
+    border: 0.2vh solid var(--CB) !important;
+    transition: 0.3s !important;
+    font-size: 2vh !important;
+}
+
+textarea {
+    text-align: left;
+    padding: 2vh;
+}
+
+textarea:focus-visible {
+    outline: none;
+}
+
+textarea:focus {
+    box-shadow: none !important;
+}
+
+option {
+    background-color: black !important;
+}
+
+input:focus {
+    box-shadow: none !important;
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.btn {
+    font-weight: bold;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: rgb(185, 43, 201);
+    --bs-btn-border-color: rgb(185, 43, 201);
+    --bs-btn-hover-bg: rgb(185, 43, 201);
+    --bs-btn-hover-border-color: rgb(185, 43, 201);
+}

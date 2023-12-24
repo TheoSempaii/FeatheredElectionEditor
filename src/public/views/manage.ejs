@@ -31,7 +31,18 @@
         <div class="col-4">
           <div class="playerSkin">
             <div class="playerBody">
-              <img src="https://mc-heads.net/body/<%- mayor["skin-npc"] %>" alt="" id="skin-preview">
+              <div class="atropos" id="mayorSkin">
+                <!-- scale container (required) -->
+                <div class="atropos-scale">
+                  <!-- rotate container (required) -->
+                  <div class="atropos-rotate">
+                    <!-- inner container (required) -->
+                    <div class="atropos-inner">
+                      <img src="https://mc-heads.net/body/<%- mayor["skin-npc"] %>" alt="" id="skin-preview">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div>
@@ -39,11 +50,11 @@
                 <input type="text" class="form-control" id="skin-browser" placeholder="Skin Username" value="<%- mayor["skin-npc"] %>">
               </div>
               <div class="d-space-between mt-3">
-                <button type="submit" class="btn btn-primary" id="skin-get" onclick="getSkin()">Get Skin</button>
-                <button type="submit" class="btn btn-primary" id="skin-set" onclick="confirmSkin()">Confirm Skin</button>
+                <button type="submit" class="btn btn-outline-primary" id="skin-get" onclick="getSkin()">Get Skin</button>
+                <button type="submit" class="btn btn-outline-primary" id="skin-set" onclick="confirmSkin()">Confirm Skin</button>
 
-                <button type="submit" class="btn btn-danger" id="skin-delete" onclick="deleteMayor()">Delete</button>
-                <button type="submit" class="btn btn-primary" id="mayor-save" onclick="saveMayor()">Save</button>
+                <button type="submit" class="btn btn-outline-danger" id="skin-delete" onclick="deleteMayor()">Delete</button>
+                <button type="submit" class="btn btn-outline-success" id="mayor-save" onclick="saveMayor()">Save</button>
               </div>
             </div>
 
@@ -53,38 +64,90 @@
         </div>
         <div class="col-4">
           <div class="mayorContent">
-            <div>
-              <input type="text" name="name" id="name" placeholder="Name" value="<%- mayor.name %>">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Name</span>
+              <input type="text" name="name" id="name" placeholder="Name" value="<%- mayor.name %>" class="form-control">
             </div>
             <div>
-              <select id="color" name="color">
-                <option value="&0">Black</option>
-                <option value="&1">Dark Blue</option>
-                <option value="&2">Dark Green</option>
-                <option value="&3">Teal (Dark Aqua)</option>
-                <option value="&4">Dark Red</option>
-                <option value="&5">Purple</option>
-                <option value="&6">Gold (Orange)</option>
-                <option value="&7">Light Gray</option>
-                <option value="&8">Dark Gray</option>
-                <option value="&9">Light Blue</option>
-                <option value="&a">Lime Green</option>
-                <option value="&b">Aqua (Cyan)</option>
-                <option value="&c">Light Red</option>
-                <option value="&d">Pink</option>
-                <option value="&e">Yellow</option>
-                <option value="&f">White</option>
-              </select>
-            </div>
-            <div>
-              <textarea id="effect-lore" cols="30" rows="10"><%- mayor["effect-lore"].join("\n") %></textarea>
-            </div>
-
-            <div class="effectsContainer">
-              <div class="effectContainer">
-
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Color</span>
+                <select id="color" name="color" class="form-select">
+                  <option value="&0">Black</option>
+                  <option value="&1">Dark Blue</option>
+                  <option value="&2">Dark Green</option>
+                  <option value="&3">Teal (Dark Aqua)</option>
+                  <option value="&4">Dark Red</option>
+                  <option value="&5">Purple</option>
+                  <option value="&6">Gold (Orange)</option>
+                  <option value="&7">Light Gray</option>
+                  <option value="&8">Dark Gray</option>
+                  <option value="&9">Light Blue</option>
+                  <option value="&a">Lime Green</option>
+                  <option value="&b">Aqua (Cyan)</option>
+                  <option value="&c">Light Red</option>
+                  <option value="&d">Pink</option>
+                  <option value="&e">Yellow</option>
+                  <option value="&f">White</option>
+                </select>
               </div>
+
             </div>
+            <div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Color</span>
+                <textarea id="effect-lore" class="form-control" cols="30" rows="10"><%- mayor["effect-lore"].join("\n") %></textarea>
+              </div>
+
+            </div>
+
+
+            <!-- <div class="effectsContainer">
+              <div class="createEffect">
+                <div class="setEffect">
+                  <select>
+                    <option value="apply_attribute">Apply Attribute</option>
+                    <option value="apply_damage">Apply Damage</option>
+                    <option value="apply_stat_mmoitem">Apply Stat MMOItem</option>
+                    <option value="apply_potion_entity">Apply Potion Entity</option>
+                    <option value="apply_potion_player">Apply Potion Player</option>
+                    <option value="remove_potion">Remove Potion</option>
+                    <option value="cancel_event">Cancel Event</option>
+                    <option value="create_hologram">Create Hologram</option>
+                    <option value="give_exp">Give EXP</option>
+                    <option value="give_exp_skill_aurelium">Give EXP Skill Aurelium</option>
+                    <option value="give_item">Give Item</option>
+                    <option value="execute_command">Execute Command</option>
+                    <option value="give_money">Give Money</option>
+                    <option value="modify_shop">Modify Shop</option>
+                    <option value="multiply_drop">Multiply Drop</option>
+                    <option value="multiply_experience">Multiply Experience</option>
+                    <option value="play_sound">Play Sound</option>
+                    <option value="random_teleport">Random Teleport</option>
+                    <option value="send_actionbar">Send Actionbar</option>
+                    <option value="send_broadcast">Send Broadcast</option>
+                    <option value="send_message">Send Message</option>
+                    <option value="send_title">Send Title</option>
+                    <option value="spawn_particles">Spawn Particles</option>
+                    <option value="spawn_entity">Spawn Entity</option>
+                    <option value="apply_stat_aurelium">Apply Stat Aurelium</option>
+                  </select>
+                </div>
+                <div id="renderEffect">
+                  <select>
+                    <option value="SUM">Sum</option>
+                    <option value="PERCENT_ADD">Percent Add</option>
+                    <option value="MULTIPLY">Multiply</option>
+                    <option value="REST">Subtract</option>
+                  </select>
+                  <select>
+                    <option value="GENERIC_MOVEMENT_SPEED">Generic Movement Speed</option>
+                    <option value="GENERIC_KNOCKBACK_RESISTANCE">Generic Knockback Resistance</option>
+                    <option value="GENERIC_MAX_HEALTH">Generic Max Health</option>
+                  </select>
+                  <input type="number">
+                </div>
+              </div>
+            </div> -->
 
           </div>
         </div>
@@ -98,6 +161,33 @@
   </main>
   <footer></footer>
   <script>
+    const mapOptions = new Map()
+      .set("apply_attribute", "")
+      .set("apply_damage", null)
+      .set("apply_stat_mmoitem", null)
+      .set("apply_potion_entity", null)
+      .set("apply_potion_player", null)
+      .set("remove_potion", null)
+      .set("cancel_event", null)
+      .set("create_hologram", null)
+      .set("give_exp", null)
+      .set("give_exp_skill_aurelium", null)
+      .set("give_item", null)
+      .set("execute_command", null)
+      .set("give_money", null)
+      .set("modify_shop", null)
+      .set("multiply_drop", null)
+      .set("multiply_experience", null)
+      .set("play_sound", null)
+      .set("random_teleport", null)
+      .set("send_actionbar", null)
+      .set("send_broadcast", null)
+      .set("send_message", null)
+      .set("send_title", null)
+      .set("spawn_particles", null)
+      .set("spawn_entity", null)
+      .set("apply_stat_aurelium", null)
+
     const skinBrowser = document.getElementById("skin-browser")
     const getSkinDataButton = document.getElementById("skin-get")
     const skinPreview = document.getElementById("skin-preview")
@@ -124,8 +214,16 @@
           color: document.getElementById("color").value,
           "effect-lore": document.getElementById("effect-lore").value
         })
-      }).then(v => v.json().then(t => document.location.reload()))
+      }).then(v => v.json().then(t => {
+        console.log(t)
+        document.location.reload()
+      }))
     }
+
+    const myAtropos = Atropos({
+      el: "#mayorSkin",
+      highlight: false
+    })
   </script>
 </body>
 

@@ -4,4 +4,28 @@ texture: ewogICJ0aW1lc3RhbXAiIDogMTcwMzQwMDIyOTk1OCwKICAicHJvZmlsZUlkIiA6ICIzYjE
 skin-npc: MeDikGon4
 effect-lore:
   - AAA
-effects: []
+effects:
+  - id: multiply_experience
+    args:
+      operation: SUM
+      amount: 0.2
+    triggers:
+      - mine_block
+    filter:
+      blocks:
+        - DIAMOND_ORE
+        - EMERALD_ORE
+        - GOLD_ORE
+        - IRON_ORE
+  - id: multiply_experience
+    args:
+      operation: SUM
+      amount: 0.5
+    triggers:
+      - player_enchanting
+  - id: multiply_experience
+    args:
+      operation: SUM
+      amount: 0.1
+    triggers:
+      - player_reparing
