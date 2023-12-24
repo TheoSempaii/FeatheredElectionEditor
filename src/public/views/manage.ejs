@@ -94,7 +94,7 @@
             </div>
             <div>
               <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Color</span>
+                <span class="input-group-text" id="basic-addon1">Lore</span>
                 <textarea id="effect-lore" class="form-control" cols="30" rows="10"><%- mayor["effect-lore"].join("\n") %></textarea>
               </div>
 
@@ -216,7 +216,7 @@
         })
       }).then(v => v.json().then(t => {
         console.log(t)
-        document.location.reload()
+        window.location.reload()
       }))
     }
 

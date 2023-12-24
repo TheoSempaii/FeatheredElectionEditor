@@ -51,7 +51,17 @@ async function saveMayor(mayor) {
 
 async function getProfileData(id) {
     const response = await fetch("https://mc-heads.net/minecraft/profile/" + id)
-    const data = await response.json()
+    const data = await response.json().catch(err => {
+        return {
+            id: "default",
+            properties: [
+                {
+                    name: "textures",
+                    value: "ewogICJ0aW1lc3RhbXAiIDogMTcwMzQwMDIyOTk1OCwKICAicHJvZmlsZUlkIiA6ICIzYjE4ZTcwZTBiZWY0MTIyYWM0ZTI4NGFkNjA2NzBjYyIsCiAgInByb2ZpbGVOYW1lIiA6ICJNZURpa0dvbjQiLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjZhMjZmNzcxMTdjNzI3YjBhMTkwODczM2JiZDg3YTFiNzQ2Mjc5MjQyNmY0M2VhZmQ3ZDg5NDdlMjFlNzg5NiIKICAgIH0KICB9Cn0="
+                }
+            ]
+        }
+    })
     if (data.id) return data
     else return await getProfileData(id)
 }

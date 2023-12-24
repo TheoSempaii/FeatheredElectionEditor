@@ -19,6 +19,7 @@ router.post("/manage/:id", async (req, res) => {
     req.body.texture = skinData.properties.find(e => e.name == "textures").value
     req.body.filename = mayors[Number(req.params.id)].filename
     req.body["effect-lore"] = req.body["effect-lore"].split("\n")
+    if (skinData.id == "default") req.body['skin-npc'] = "MileiLover"
     const mayor = new Mayor(req.body)
     await saveMayor(mayor)
     res.send(mayor)
