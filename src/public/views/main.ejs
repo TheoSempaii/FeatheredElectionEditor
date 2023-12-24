@@ -22,14 +22,24 @@
 </head>
 
 <body>
-  <nav></nav>
+  <%-include("./prefabs/nav.ejs") %>
+  <script>
+    function createAtropos(v) {
+
+      const myAtropos = Atropos({
+        el: '#mk-' + v,
+        highlight: false
+      })
+    }
+  </script>
+
   <main>
     <div class="container">
       <div class="cardsContent">
         <div class="row">
           <% mayors.forEach((mayor,k) => { %>
           <% if (mayor){%>
-          <div class="col-3">
+          <a class="col-3" href="/manage/<%- k %>">
             <div class="atropos" id="mk-<%- k %>">
               <!-- scale container (required) -->
               <div class="atropos-scale">
@@ -39,7 +49,7 @@
                   <div class="atropos-inner">
                     <div class="cardItem">
                       <div class="cardImg">
-                        <img src="https://mc-heads.net/avatar/<%- mayor["skin-npc"]/100 %>" alt="">
+                        <img src="https://mc-heads.net/avatar/<%- mayor["skin-npc"] %>/100" alt="">
                       </div>
                       <div class="cardContent"><%- mayor.name %></div>
                     </div>
@@ -47,9 +57,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </a>
           <% } else { %>
-          <div class="col-3">
+          <a class="col-3" href="/create/<%- k %>">
             <div class="atropos" id="mk-<%- k %>">
               <!-- scale container (required) -->
               <div class="atropos-scale">
@@ -67,19 +77,15 @@
                 </div>
               </div>
             </div>
-          </div>
+          </a>
 
           <% } %>
           <script>
-            (() => {
-              const k = "<%- k %>"
-              const myAtropos = Atropos({
-                el: '#mk-' + k,
-                highlight: false
-              })
-            })();
+            createAtropos("<%- k %>")
           </script>
+
           <% }) %>
+
 
         </div>
       </div>

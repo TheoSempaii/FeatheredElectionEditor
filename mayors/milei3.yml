@@ -1,0 +1,12 @@
+color: "&e"
+name: "Milei"
+texture: "ewogICJ0aW1lc3RhbXAiIDogMTcwMzM3ODQ2MDMxNiwKICAicHJvZmlsZUlkIiA6ICI2ZDFlNjJmYzU1MjE0NTQ1OTdjMDM3YWI0Mzg3YzVlMiIsCiAgInByb2ZpbGVOYW1lIiA6ICJNaWxlaUxvdmVyIiwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzU0NzQ0MWFkZWMyOGRjZTJmZDQ4YWVkYWJjOGNhNGMzZTVhZTk4OTBlZGI5OWRlNTNiZTk0Y2M4NDU4MWU2ZGYiCiAgICB9CiAgfQp9"
+skin-npc: "MileiLover"
+effect-lore:
+  - "Viva la libertad carajo"
+effects:
+  - id: multiply_drop
+    args:
+      value: 10.0
+    triggers:
+      - player_fish

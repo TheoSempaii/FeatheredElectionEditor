@@ -4,6 +4,7 @@ import { readdirSync } from "fs"
 import { resolve } from "path"
 import { readMayorFiles } from "./utils/mayors.js"
 import ejs from "ejs"
+import cors from "cors"
 
 async function createApp() {
     console.time("Server started in")
@@ -15,6 +16,7 @@ async function createApp() {
     app.use(json())
     app.use(urlencoded({ extended: true }))
     app.use(raw())
+    app.use(cors());
 
     app.use("/css", express.static(resolve("./src/public/css")));
     app.use("/img", express.static(resolve("./src/public/img")));

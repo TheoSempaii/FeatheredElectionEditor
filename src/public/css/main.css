@@ -5,6 +5,7 @@
 
 * {
     font-family: 'Lato', sans-serif;
+    transition-duration: 0.3s;
 }
 
 html {
@@ -28,6 +29,33 @@ main {
 footer,
 nav {
     min-height: 10vh;
+    color: white;
+
+
+}
+
+.d-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.199);
+}
+
+nav a {
+    color: var(--CB) !important;
+    font-weight: bold !important;
+    font-size: 2.5vh !important;
+    text-shadow: rgba(255, 0, 0, 0);
+    transition: 0.3s !important;
+
+}
+
+nav a:hover {
+    text-shadow: rgb(185, 43, 201) 0vh 0vh 1.5vh !important;
+    transition: 0.3s !important;
 }
 
 .cardItem {
@@ -48,6 +76,8 @@ nav {
     color: var(--CB);
     font-weight: bold !important;
     text-align: center;
+    text-decoration: none;
+
 }
 
 .cardImg img {
@@ -62,6 +92,7 @@ nav {
 
 .col-3 {
     margin-bottom: 3vh;
+    text-decoration: none;
 }
 
 .atropos-shadow {

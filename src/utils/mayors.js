@@ -1,13 +1,13 @@
-import { readFileSync, readdirSync } from "fs"
+import { readFileSync, readdirSync, writeFileSync } from "fs"
 import { parse, resolve } from "path"
 import * as yaml from "yaml"
 import { Mayor } from "../classes/mayor.js"
 
 function readMayorFiles() {
-    const files = readdirSync(resolve("./input"))
+    const files = readdirSync(resolve("./mayors"))
 
     const parsed = files.map(v => {
-        const file = resolve("./input/" + v)
+        const file = resolve("./mayors/" + v)
         const fileReaded = readFileSync(file, { encoding: "utf8" })
         return validateMayorFile(fileReaded, v)
     })
@@ -38,4 +38,22 @@ function validateMayorFile(data, filename) {
 
 }
 
-export { readMayorFiles }
+/**
+ * 
+ * @param {Mayor} mayor 
+ */
+async function saveMayor(mayor) {
+    const filename = mayor.filename
+    delete mayor.filename
+    const mayorYaml = yaml.stringify(mayor)
+    writeFileSync(`./mayors/${filename}`, mayorYaml)
+}
+
+async function getProfileData(id) {
+    const response = await fetch("https://mc-heads.net/minecraft/profile/" + id)
+    const data = await response.json()
+    if (data.id) return data
+    else return await getProfileData(id)
+}
+
+export { readMayorFiles, getProfileData, validateMayorFile, saveMayor }
