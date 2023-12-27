@@ -9,6 +9,10 @@
     background: rgba(255, 255, 255, 0.205);
 }
 
+main {
+    padding: 10vh 0vh;
+}
+
 input,
 span,
 select,
@@ -77,4 +81,20 @@ input[type=number] {
 
 .deleteEffect:hover {
     cursor: pointer;
+}
+
+.navbar-toggler {
+    background-color: rgba(0, 255, 255, 0.425) !important;
+}
+
+.navbar-toggler span {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+@media (max-width: 960px) {
+    .col-4 {
+        width: 100%;
+        padding-bottom: 5vh;
+    }
 }
