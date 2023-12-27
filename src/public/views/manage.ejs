@@ -28,6 +28,9 @@
 
 <body>
   <%-include("./prefabs/nav.ejs") %>
+  <script>
+    const mapOptions = new Map()
+  </script>
   <main>
     <div class="container">
       <div class="row">
@@ -156,13 +159,18 @@
         </div>
         <div class="col-4">
           <div id="allEffects">
+            <% for( let i = 0; i < mayor.effects.length; i++ ) { %>
+            <div class="input-group mb-3 effectPushed" id="effectPushed-${vals.length}">
+              <span class="input-group-text deleteEffect" onclick="deleteEffect('effectPushed-<%-i%>')">Delete</span>
+              <textarea i class="form-control effectText" cols="20" rows="5"><%- mayor.effects[i].yaml %></textarea>
+            </div>
+            <% } %>
+
 
           </div>
-
         </div>
-      </div>
 
-    </div>
+      </div>
   </main>
   <footer></footer>
   <script>
@@ -177,7 +185,7 @@
     currentEffect.onchange = () => updateChanges();
 
     function updateChanges() {
-      const mapOptions = new Map()
+      mapOptions
         .set("apply_attribute", () => renderEffect(applyAttribute))
         .set("apply_damage", null)
         .set("apply_stat_mmoitem", null)
