@@ -45,6 +45,7 @@ function validateMayorFile(data, filename) {
 async function saveMayor(mayor) {
     const filename = mayor.filename
     delete mayor.filename
+
     const mayorYaml = yaml.stringify(mayor)
     writeFileSync(`./mayors/${filename}`, mayorYaml)
 }

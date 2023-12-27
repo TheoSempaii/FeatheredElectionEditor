@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
 const router = Router();
 import { getProfileData, saveMayor } from "../utils/mayors.js"
 import { Mayor } from "../classes/mayor.js";
+import yaml from "yaml"
 
 router.get("/manage/:id", async (req, res) => {
     const mayors = readMayorFiles()
@@ -20,10 +21,17 @@ router.post("/manage/:id", async (req, res) => {
     req.body.filename = mayors[Number(req.params.id)].filename
     req.body["effect-lore"] = req.body["effect-lore"].split("\n")
     if (skinData.id == "default") req.body['skin-npc'] = "MileiLover"
+    console.log(req.body)
+    req.body.effects = req.body.effects.map(e => {
+        return yaml.parse(e)
+    })
     const mayor = new Mayor(req.body)
     await saveMayor(mayor)
     res.send(mayor)
+
 })
+
+
 
 
 

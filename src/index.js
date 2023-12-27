@@ -20,6 +20,8 @@ async function createApp() {
 
     app.use("/css", express.static(resolve("./src/public/css")));
     app.use("/img", express.static(resolve("./src/public/img")));
+    app.use("/js", express.static(resolve("./src/public/js")));
+
 
 
 

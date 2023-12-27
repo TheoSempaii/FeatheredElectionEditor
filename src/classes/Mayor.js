@@ -22,5 +22,6 @@ export class Mayor {
                 return prev
             }, [])
         }
+
     }
 }

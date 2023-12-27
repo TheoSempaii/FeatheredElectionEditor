@@ -1,6 +1,6 @@
 :root {
     --CA: #13102d;
-    --CB: rgba(185, 43, 201, 0.52);
+    --CB: rgba(43, 201, 188, 0.52);
 }
 
 * {
@@ -10,7 +10,7 @@
 
 html {
     background-image:
-        linear-gradient(to bottom, rgba(48, 0, 53, 0.52), rgba(0, 0, 0, 0.73)),
+        linear-gradient(to bottom, rgba(0, 53, 42, 0.52), rgba(0, 0, 0, 0.73)),
         url('/img/bg.png');
     background-size: cover;
 }
@@ -54,7 +54,7 @@ nav a {
 }
 
 nav a:hover {
-    text-shadow: rgb(185, 43, 201) 0vh 0vh 1.5vh !important;
+    text-shadow: rgb(43, 196, 201) 0vh 0vh 1.5vh !important;
     transition: 0.3s !important;
 }
 

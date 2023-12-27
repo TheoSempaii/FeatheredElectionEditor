@@ -16,7 +16,7 @@ option,
 textarea {
     background-color: rgba(0, 0, 0, 0.486) !important;
     background: transparent;
-    color: rgb(185, 43, 201) !important;
+    color: rgb(43, 201, 175) !important;
     font-weight: bolder !important;
     text-align: center;
     border: 0.2vh solid var(--CB) !important;
@@ -64,8 +64,17 @@ input[type=number] {
 }
 
 .btn-outline-primary {
-    --bs-btn-color: rgb(185, 43, 201);
-    --bs-btn-border-color: rgb(185, 43, 201);
-    --bs-btn-hover-bg: rgb(185, 43, 201);
-    --bs-btn-hover-border-color: rgb(185, 43, 201);
+    --bs-btn-color: rgb(43, 190, 201);
+    --bs-btn-border-color: rgb(43, 201, 193);
+    --bs-btn-hover-bg: rgb(43, 201, 188);
+    --bs-btn-hover-border-color: rgb(43, 201, 201);
+}
+
+.deleteEffect {
+    color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+
+.deleteEffect:hover {
+    cursor: pointer;
 }

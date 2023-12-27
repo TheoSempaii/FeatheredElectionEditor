@@ -18,8 +18,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
+
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/manage.css">
+
+  <script src="/js/applyAttributeContent.js"></script>
 
 </head>
 
@@ -57,6 +60,7 @@
                 <button type="submit" class="btn btn-outline-success" id="mayor-save" onclick="saveMayor()">Save</button>
               </div>
             </div>
+
 
 
           </div>
@@ -100,59 +104,60 @@
 
             </div>
 
-
-            <!-- <div class="effectsContainer">
+            <div class="effectsContainer">
               <div class="createEffect">
                 <div class="setEffect">
-                  <select>
-                    <option value="apply_attribute">Apply Attribute</option>
-                    <option value="apply_damage">Apply Damage</option>
-                    <option value="apply_stat_mmoitem">Apply Stat MMOItem</option>
-                    <option value="apply_potion_entity">Apply Potion Entity</option>
-                    <option value="apply_potion_player">Apply Potion Player</option>
-                    <option value="remove_potion">Remove Potion</option>
-                    <option value="cancel_event">Cancel Event</option>
-                    <option value="create_hologram">Create Hologram</option>
-                    <option value="give_exp">Give EXP</option>
-                    <option value="give_exp_skill_aurelium">Give EXP Skill Aurelium</option>
-                    <option value="give_item">Give Item</option>
-                    <option value="execute_command">Execute Command</option>
-                    <option value="give_money">Give Money</option>
-                    <option value="modify_shop">Modify Shop</option>
-                    <option value="multiply_drop">Multiply Drop</option>
-                    <option value="multiply_experience">Multiply Experience</option>
-                    <option value="play_sound">Play Sound</option>
-                    <option value="random_teleport">Random Teleport</option>
-                    <option value="send_actionbar">Send Actionbar</option>
-                    <option value="send_broadcast">Send Broadcast</option>
-                    <option value="send_message">Send Message</option>
-                    <option value="send_title">Send Title</option>
-                    <option value="spawn_particles">Spawn Particles</option>
-                    <option value="spawn_entity">Spawn Entity</option>
-                    <option value="apply_stat_aurelium">Apply Stat Aurelium</option>
-                  </select>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Effect</span>
+                    <select class="form-select" id="currentEffect">
+                      <option value="apply_attribute">Apply Attribute</option>
+                      <option value="apply_damage">Apply Damage</option>
+                      <option value="apply_stat_mmoitem">Apply Stat MMOItem</option>
+                      <option value="apply_potion_entity">Apply Potion Entity</option>
+                      <option value="apply_potion_player">Apply Potion Player</option>
+                      <option value="remove_potion">Remove Potion</option>
+                      <option value="cancel_event">Cancel Event</option>
+                      <option value="create_hologram">Create Hologram</option>
+                      <option value="give_exp">Give EXP</option>
+                      <option value="give_exp_skill_aurelium">Give EXP Skill Aurelium</option>
+                      <option value="give_item">Give Item</option>
+                      <option value="execute_command">Execute Command</option>
+                      <option value="give_money">Give Money</option>
+                      <option value="modify_shop">Modify Shop</option>
+                      <option value="multiply_drop">Multiply Drop</option>
+                      <option value="multiply_experience">Multiply Experience</option>
+                      <option value="play_sound">Play Sound</option>
+                      <option value="random_teleport">Random Teleport</option>
+                      <option value="send_actionbar">Send Actionbar</option>
+                      <option value="send_broadcast">Send Broadcast</option>
+                      <option value="send_message">Send Message</option>
+                      <option value="send_title">Send Title</option>
+                      <option value="spawn_particles">Spawn Particles</option>
+                      <option value="spawn_entity">Spawn Entity</option>
+                      <option value="apply_stat_aurelium">Apply Stat Aurelium</option>
+                    </select>
+                  </div>
+
                 </div>
                 <div id="renderEffect">
-                  <select>
-                    <option value="SUM">Sum</option>
-                    <option value="PERCENT_ADD">Percent Add</option>
-                    <option value="MULTIPLY">Multiply</option>
-                    <option value="REST">Subtract</option>
-                  </select>
-                  <select>
-                    <option value="GENERIC_MOVEMENT_SPEED">Generic Movement Speed</option>
-                    <option value="GENERIC_KNOCKBACK_RESISTANCE">Generic Knockback Resistance</option>
-                    <option value="GENERIC_MAX_HEALTH">Generic Max Health</option>
-                  </select>
-                  <input type="number">
                 </div>
+
+                <div>
+
+                  <div class="d-space-between mt-3">
+                    <button type="submit" class="btn btn-outline-primary" onclick="addEffect()">Add Effect</button>
+                  </div>
+                </div>
+
               </div>
-            </div> -->
+            </div>
 
           </div>
         </div>
         <div class="col-4">
+          <div id="allEffects">
 
+          </div>
 
         </div>
       </div>
@@ -161,37 +166,48 @@
   </main>
   <footer></footer>
   <script>
-    const mapOptions = new Map()
-      .set("apply_attribute", "")
-      .set("apply_damage", null)
-      .set("apply_stat_mmoitem", null)
-      .set("apply_potion_entity", null)
-      .set("apply_potion_player", null)
-      .set("remove_potion", null)
-      .set("cancel_event", null)
-      .set("create_hologram", null)
-      .set("give_exp", null)
-      .set("give_exp_skill_aurelium", null)
-      .set("give_item", null)
-      .set("execute_command", null)
-      .set("give_money", null)
-      .set("modify_shop", null)
-      .set("multiply_drop", null)
-      .set("multiply_experience", null)
-      .set("play_sound", null)
-      .set("random_teleport", null)
-      .set("send_actionbar", null)
-      .set("send_broadcast", null)
-      .set("send_message", null)
-      .set("send_title", null)
-      .set("spawn_particles", null)
-      .set("spawn_entity", null)
-      .set("apply_stat_aurelium", null)
-
     const skinBrowser = document.getElementById("skin-browser")
     const getSkinDataButton = document.getElementById("skin-get")
     const skinPreview = document.getElementById("skin-preview")
+    const renderBase = document.getElementById("renderEffect")
+    const currentEffect = document.getElementById("currentEffect")
     let skinName = '<%- mayor["skin-npc"] %>'
+
+
+    currentEffect.onchange = () => updateChanges();
+
+    function updateChanges() {
+      const mapOptions = new Map()
+        .set("apply_attribute", () => renderEffect(applyAttribute))
+        .set("apply_damage", null)
+        .set("apply_stat_mmoitem", null)
+        .set("apply_potion_entity", null)
+        .set("apply_potion_player", null)
+        .set("remove_potion", null)
+        .set("cancel_event", null)
+        .set("create_hologram", null)
+        .set("give_exp", null)
+        .set("give_exp_skill_aurelium", null)
+        .set("give_item", null)
+        .set("execute_command", null)
+        .set("give_money", null)
+        .set("modify_shop", null)
+        .set("multiply_drop", null)
+        .set("multiply_experience", null)
+        .set("play_sound", null)
+        .set("random_teleport", null)
+        .set("send_actionbar", null)
+        .set("send_broadcast", null)
+        .set("send_message", null)
+        .set("send_title", null)
+        .set("spawn_particles", null)
+        .set("spawn_entity", null)
+        .set("apply_stat_aurelium", null);
+
+      [...document.getElementsByClassName("renderedEffect")].map(v => v.remove())
+
+      if (mapOptions.has(currentEffect.value) && mapOptions.get(currentEffect.value) != null) mapOptions.get(currentEffect.value)()
+    }
 
     function getSkin() {
       if (skinBrowser.value.toLowerCase().trim().length == 0) return;
@@ -203,6 +219,7 @@
     }
 
     function saveMayor() {
+
       fetch("/manage/<%- pageid %>", {
         method: "POST",
         headers: {
@@ -212,7 +229,11 @@
           name: document.getElementById("name").value,
           "skin-npc": skinName,
           color: document.getElementById("color").value,
-          "effect-lore": document.getElementById("effect-lore").value
+          "effect-lore": document.getElementById("effect-lore").value,
+          effects: [...document.getElementsByClassName("effectText")].map(v => {
+            return v.value
+          })
+
         })
       }).then(v => v.json().then(t => {
         console.log(t)
@@ -220,10 +241,32 @@
       }))
     }
 
+    function renderEffect(effect) {
+      renderBase.insertAdjacentHTML("beforeend", effect.content)
+      effect.execute()
+    }
+
     const myAtropos = Atropos({
       el: "#mayorSkin",
       highlight: false
     })
+
+    function addEffect() {
+      const textContent = document.getElementById("finalJSON")
+      const allEffects = document.getElementById("allEffects")
+      const vals = [...document.getElementsByClassName("effectPushed")]
+
+      allEffects.insertAdjacentHTML("beforeend", `            <div class="input-group mb-3 effectPushed" id="effectPushed-${vals.length}">
+              <span class="input-group-text deleteEffect" onclick="deleteEffect('effectPushed-${vals.length}')">Delete</span>
+              <textarea i class="form-control effectText" cols="20" rows="5">${textContent.value}</textarea>
+            </div>`)
+    }
+
+    function deleteEffect(vid) {
+      document.getElementById(vid).remove()
+    }
+
+    updateChanges()
   </script>
 </body>
 
